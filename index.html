@@ -11,8 +11,8 @@
 <meta property="og:url" content="https://wonderlandsamarinda.com/">
 <meta name="theme-color" content="#153E2D">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon.svg">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,6 +23,12 @@
   body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream);padding-bottom:72px}
   a{color:var(--tropical)}
   img{max-width:100%}
+  .gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .gal figure{margin:0;position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;background:var(--line)}
+  .gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+  .gal figure:hover img{transform:scale(1.04)}
+  .gal figcaption{position:absolute;left:10px;bottom:10px;background:rgba(21,62,45,.85);color:#fff;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px}
+  @media (max-width:720px){.gal{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
   .wrap{max-width:1200px;margin:0 auto}
   .pad{padding-left:32px;padding-right:32px}
   .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;font-family:inherit;font-weight:800;font-size:15px;text-decoration:none;cursor:pointer;border:none}
@@ -54,7 +60,7 @@
   /* hero */
   .hero-row{display:flex;flex-wrap:wrap;gap:24px;align-items:stretch}
   .hero{flex:999 1 560px;min-width:0;border-radius:28px;background:var(--forest);color:#fff;position:relative;overflow:hidden;min-height:460px;display:flex;flex-direction:column;justify-content:flex-end;padding:40px}
-  .hero-photos{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;opacity:.55}
+  .hero-photos{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;opacity:.8}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,62,45,.1) 0%,rgba(21,62,45,.92) 72%)}
   .hero-in{position:relative;display:flex;flex-direction:column;gap:16px;max-width:620px}
   .hero h1{margin:0;font-size:52px;line-height:1.05;font-weight:800;letter-spacing:-.02em}
@@ -111,7 +117,7 @@
 </div>
 
 <header class="pad">
-  <a href="#" class="logo"><span class="logo-mark">W</span><span><b>Wonderland</b><small>SAMARINDA</small></span></a>
+  <a href="#" class="logo"><img src="img/logo.png" alt="Wonderland Samarinda" width="52" height="52" style="width:52px;height:52px;object-fit:contain"><span><b>Wonderland</b><small>SAMARINDA</small></span></a>
   <nav class="menu" aria-label="Menu utama">
     <a href="#tiket">Tiket</a><a href="#wahana">Wahana</a><a href="#bundling">Promo</a><a href="#rombongan">Rombongan</a><a href="#lokasi">Lokasi</a><a href="#faq">FAQ</a>
   </nav>
@@ -125,11 +131,10 @@
 <section class="pad" style="padding-top:32px">
   <div class="wrap hero-row">
     <div class="hero">
-      <!-- GANTI FOTO: tambahkan style="background-image:url('img/xxx.jpg')" pada tiap .cover di bawah, lalu hapus teksnya -->
       <div class="hero-photos">
-        <div class="cover" style="background-color:var(--tropical)">[FOTO: Dino Forest]</div>
-        <div class="cover" style="background-color:var(--ocean)">[FOTO: Kolam Renang]</div>
-        <div class="cover" style="background-color:var(--deep)">[FOTO: Rainbow Slide]</div>
+        <div class="cover" style="background-color:var(--tropical);background-image:url('img/dino-forest.webp')"></div>
+        <div class="cover" style="background-color:var(--ocean);background-image:url('img/kolam-renang-2.webp')"></div>
+        <div class="cover" style="background-color:var(--deep);background-image:url('img/rainbow-slide-2.webp')"></div>
       </div>
       <div class="hero-shade"></div>
       <div class="hero-in">
@@ -219,6 +224,21 @@
   <div class="wrap grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
     <div class="feat"><span class="feat-ic" style="background:#E1F2EE;color:var(--tropical)"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4M4 8h4M4 12h6M4 16h4"/></svg></span><span><b>Anak di atas 80 cm</b><span>berlaku harga normal.</span></span></div>
     <div class="feat"><span class="feat-ic" style="background:#FBEBEB;color:#B42318"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span><span><b>Tidak boleh membawa makanan/minuman dari luar</b><span>Kami mendukung UMKM lokal. Tersedia banyak tenant di area wisata.</span></span></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="galeri" class="sec pad">
+  <div class="wrap">
+    <div class="eyebrow">GALERI</div><h2 class="h2" style="margin-bottom:20px">Intip keseruan di Wonderland</h2>
+    <div class="gal">
+      <figure><img src="img/dino-forest.webp" alt="Dino Forest di tengah kebun sawit" loading="lazy"><figcaption>Dino Forest</figcaption></figure>
+      <figure><img src="img/kolam-renang.webp" alt="Kolam renang anak dengan perosotan" loading="lazy"><figcaption>Kolam Renang</figcaption></figure>
+      <figure><img src="img/monorail-penumpang.webp" alt="Pengunjung naik Kereta Monorail" loading="lazy"><figcaption>Kereta Monorail</figcaption></figure>
+      <figure><img src="img/playground-2.webp" alt="Area playground anak" loading="lazy"><figcaption>Playground</figcaption></figure>
+      <figure><img src="img/taman-panda.webp" alt="Taman panda dan istana" loading="lazy"><figcaption>Taman Panda</figcaption></figure>
+      <figure><img src="img/rainbow-slide-2.webp" alt="Pengunjung meluncur di Rainbow Slide" loading="lazy"><figcaption>Rainbow Slide</figcaption></figure>
+    </div>
   </div>
 </section>
 
@@ -339,6 +359,15 @@ let BUNDLES = [
   { id:"b5", name:"Playground + Monorail + Bombom Car", price:60000, normal:70000 }
 ];
 const BGS = ["var(--tropical)","var(--ocean)","var(--deep)"];
+/* Foto bawaan (dipakai bila kolom url_foto di spreadsheet kosong) */
+const IMG = {
+  REGULER:"img/kolam-renang.webp", TERUSAN:"img/rainbow-slide-2.webp", TERUSAN_PLUS:"img/taman-panda.webp",
+  monorail:"img/monorail.webp", bombom:"img/bombom-car.webp", rainbow:"img/rainbow-slide.webp",
+  tamiya:"img/tamiya-gravity.webp", playground:"img/playground.webp", trampolin:"img/trampolin-jumbo.webp",
+  keretamini:"img/kereta-mini.webp"
+};
+TICKETS.forEach(t => t.image = t.image || IMG[t.id] || "");
+RIDES.forEach(r => r.image = r.image || IMG[r.id] || "");
 
 /* ===== STATE ===== */
 const rp = n => "Rp" + n.toLocaleString("id-ID");
@@ -480,8 +509,8 @@ async function loadCatalog(){
     const d = await res.json();
     if (!d.ok) return;
     const bgs = ["var(--ocean)","var(--tropical)","var(--deep)"];
-    if (d.tickets && d.tickets.length) TICKETS = d.tickets.map((t,i) => ({ id:t.id, name:t.name, weekday:t.weekday, weekend:t.weekend, holiday:t.holiday, badge:t.badge||"", photo:t.photo||t.name, image:t.image||"", bg:bgs[i%3], includes:t.includes||[] }));
-    if (d.rides && d.rides.length) RIDES = d.rides;
+    if (d.tickets && d.tickets.length) TICKETS = d.tickets.map((t,i) => ({ id:t.id, name:t.name, weekday:t.weekday, weekend:t.weekend, holiday:t.holiday, badge:t.badge||"", photo:t.photo||t.name, image:t.image||IMG[t.id]||"", bg:bgs[i%3], includes:t.includes||[] }));
+    if (d.rides && d.rides.length) RIDES = d.rides.map(r => ({ ...r, image: r.image || IMG[r.id] || "" }));
     if (Array.isArray(d.holidays)) HOLIDAYS = d.holidays;
     if (d.bundles && d.bundles.length) BUNDLES = d.bundles;
     if (!TICKETS.some(t => t.id === state.quick)) state.quick = TICKETS[0].id;

@@ -307,18 +307,18 @@ function schema_() {
       ['whatsapp', '6282254335976', 'Nomor WA admin (informasi)']
     ] },
     { name: SHEETS.TICKETS, header: ['id', 'nama', 'harga_weekday', 'harga_weekend', 'harga_libur', 'badge', 'fasilitas', 'label_foto', 'url_foto', 'aktif', 'urutan'], rows: [
-      ['REGULER', 'Tiket Reguler', 25000, 30000, 30000, '', 'Kolam Renang; Dino Forest; Kampung Sakura & Kampung Salju; Puluhan spot foto instagramable', 'Kolam Renang', '', true, 1],
-      ['TERUSAN', 'Tiket Terusan', 75000, 75000, 75000, 'Favorit keluarga', 'Semua fasilitas Tiket Reguler; Kereta Monorail; Bombom Car; Rainbow Slide', 'Rainbow Slide', '', true, 2],
-      ['TERUSAN_PLUS', 'Tiket Terusan Plus', 100000, 100000, 100000, 'Paling puas', 'Semua fasilitas Tiket Reguler; Monorail, Bombom Car, Rainbow Slide; Tamiya Gravity & Playground; Trampolin Jumbo', 'Trampolin Jumbo', '', true, 3]
+      ['REGULER', 'Tiket Reguler', 25000, 30000, 30000, '', 'Kolam Renang; Dino Forest; Kampung Sakura & Kampung Salju; Puluhan spot foto instagramable', 'Kolam Renang', 'img/kolam-renang.webp', true, 1],
+      ['TERUSAN', 'Tiket Terusan', 75000, 75000, 75000, 'Favorit keluarga', 'Semua fasilitas Tiket Reguler; Kereta Monorail; Bombom Car; Rainbow Slide', 'Rainbow Slide', 'img/rainbow-slide-2.webp', true, 2],
+      ['TERUSAN_PLUS', 'Tiket Terusan Plus', 100000, 100000, 100000, 'Paling puas', 'Semua fasilitas Tiket Reguler; Monorail, Bombom Car, Rainbow Slide; Tamiya Gravity & Playground; Trampolin Jumbo', 'Trampolin Jumbo', 'img/taman-panda.webp', true, 3]
     ] },
     { name: SHEETS.RIDES, header: ['id', 'nama', 'harga', 'status', 'url_foto', 'aktif', 'urutan'], rows: [
-      ['monorail', 'Kereta Monorail', 25000, 'Buka', '', true, 1],
-      ['bombom', 'Bombom Car', 25000, 'Buka', '', true, 2],
-      ['rainbow', 'Rainbow Slide', 25000, 'Buka', '', true, 3],
-      ['tamiya', 'Tamiya Gravity', 25000, 'Buka', '', true, 4],
-      ['playground', 'Playground', 20000, 'Buka', '', true, 5],
-      ['trampolin', 'Trampolin Jumbo', 15000, 'Buka', '', true, 6],
-      ['keretamini', 'Kereta Mini', 10000, 'Buka', '', true, 7]
+      ['monorail', 'Kereta Monorail', 25000, 'Buka', 'img/monorail.webp', true, 1],
+      ['bombom', 'Bombom Car', 25000, 'Buka', 'img/bombom-car.webp', true, 2],
+      ['rainbow', 'Rainbow Slide', 25000, 'Buka', 'img/rainbow-slide.webp', true, 3],
+      ['tamiya', 'Tamiya Gravity', 25000, 'Buka', 'img/tamiya-gravity.webp', true, 4],
+      ['playground', 'Playground', 20000, 'Buka', 'img/playground.webp', true, 5],
+      ['trampolin', 'Trampolin Jumbo', 15000, 'Buka', 'img/trampolin-jumbo.webp', true, 6],
+      ['keretamini', 'Kereta Mini', 10000, 'Buka', 'img/kereta-mini.webp', true, 7]
     ], validations: { D: ['Buka', 'Perawatan', 'Tutup'] }, checkboxes: ['F'] },
     { name: SHEETS.BUNDLES, header: ['id', 'nama', 'harga', 'harga_normal', 'aktif', 'urutan'], rows: [
       ['b1', 'Rainbow Slide + Tamiya Gravity', 40000, 50000, true, 1],
