@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wonderland Samarinda — Where A Wonderful Life Begins.</title>
+<meta name="description" content="Wonderland Samarinda: wisata tematik di tengah kebun sawit Palaran. Beli tiket masuk, wahana satuan, dan bundling hemat secara online.">
+<link rel="canonical" href="https://wonderlandsamarinda.com/">
+<meta property="og:title" content="Wonderland Samarinda — Where A Wonderful Life Begins.">
+<meta property="og:description" content="Dino Forest, kolam renang, Rainbow Slide, Bombom Car, Monorail. Tiket mulai Rp25.000.">
+<meta property="og:url" content="https://wonderlandsamarinda.com/">
+<meta name="theme-color" content="#153E2D">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#153E2D;--tropical:#168C78;--ocean:#168BCB;--sun:#F5C542;--cream:#F6F3E9;--ink:#14231B;--muted:#4B5B52;--line:#E4DFCF;--line2:#CFC8B4;--deep:#1E5A42}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream);padding-bottom:72px}
+  a{color:var(--tropical)}
+  img{max-width:100%}
+  .wrap{max-width:1200px;margin:0 auto}
+  .pad{padding-left:32px;padding-right:32px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;font-family:inherit;font-weight:800;font-size:15px;text-decoration:none;cursor:pointer;border:none}
+  .btn-sun{background:var(--sun);color:var(--forest)}
+  .btn-forest{background:var(--forest);color:#fff}
+  .btn-outline{background:#fff;border:1.5px solid var(--forest);color:var(--forest)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.7);color:#fff;background:transparent}
+  .chip{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;display:inline-block}
+  .eyebrow{font-size:13px;font-weight:700;color:var(--tropical);letter-spacing:.08em}
+  .h2{margin:0;font-size:34px;font-weight:800;color:var(--forest)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+  .grid{display:grid;gap:20px}
+  .icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .cover{position:relative;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:600;background-size:cover;background-position:center}
+
+  /* utility & header */
+  .util{background:var(--forest);color:var(--cream);font-size:13px;padding-top:8px;padding-bottom:8px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .util a{color:var(--cream);text-decoration:none;margin-left:20px}
+  header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding-top:14px;padding-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--forest)}
+  .logo-mark{width:40px;height:40px;border-radius:12px;background:var(--forest);color:var(--sun);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
+  .logo b{display:block;font-size:18px;font-weight:800;line-height:1.1}
+  .logo small{display:block;font-size:11px;font-weight:600;letter-spacing:.16em;color:var(--tropical)}
+  .menu{display:flex;gap:28px;font-weight:600}
+  .menu a{color:var(--ink);text-decoration:none}
+  .menu a:hover{color:var(--tropical)}
+  .cart-btn{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--cream);color:var(--forest);font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+
+  /* hero */
+  .hero-row{display:flex;flex-wrap:wrap;gap:24px;align-items:stretch}
+  .hero{flex:999 1 560px;min-width:0;border-radius:28px;background:var(--forest);color:#fff;position:relative;overflow:hidden;min-height:460px;display:flex;flex-direction:column;justify-content:flex-end;padding:40px}
+  .hero-photos{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;opacity:.55}
+  .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,62,45,.1) 0%,rgba(21,62,45,.92) 72%)}
+  .hero-in{position:relative;display:flex;flex-direction:column;gap:16px;max-width:620px}
+  .hero h1{margin:0;font-size:52px;line-height:1.05;font-weight:800;letter-spacing:-.02em}
+  .hero p{margin:0;font-size:17px;line-height:1.6;color:#E3EEE8}
+  .booker{flex:1 1 340px;min-width:0;background:#fff;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:18px;border:1px solid var(--line)}
+  .booker label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:var(--forest)}
+  .booker input{min-height:48px;border-radius:14px;border:1px solid var(--line2);padding:0 14px;font-family:inherit;font-size:15px;color:var(--ink);background:#fff}
+  .opt{min-height:48px;display:flex;justify-content:space-between;align-items:center;padding:0 14px;border-radius:14px;font-family:inherit;font-size:15px;cursor:pointer;color:var(--ink);border:1px solid var(--line2);background:#fff;width:100%}
+  .opt.on{border:2px solid var(--tropical);background:#E1F2EE}
+  .opt span:last-child{font-weight:800;color:var(--tropical)}
+  .qbtn{width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);background:#fff;font-size:20px;font-family:inherit;cursor:pointer;color:var(--forest)}
+
+  .feat{background:#fff;border-radius:20px;padding:20px;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line)}
+  .feat-ic{width:44px;height:44px;flex-shrink:0;border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .feat b{display:block;font-size:15px;color:var(--forest)}
+  .feat span{font-size:13px;color:var(--muted)}
+
+  section.sec{padding-top:64px}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+
+  .bundle-box{background:var(--forest);border-radius:32px;padding:40px;color:#fff}
+  .footer{margin-top:64px;background:var(--forest);color:#CFE3DA;padding-top:48px;padding-bottom:32px}
+  .footer a{color:#CFE3DA;text-decoration:none;display:block;margin-top:8px}
+  .footer b{color:#fff}
+
+  .bottom-nav{display:none;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);justify-content:space-around;padding:6px 4px}
+  .bottom-nav a,.bottom-nav button{white-space:nowrap;min-height:52px;min-width:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:var(--forest);font-size:11px;font-weight:700;border:none;background:none;font-family:inherit;cursor:pointer}
+
+  .toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:70;background:var(--forest);color:#fff;padding:12px 20px;border-radius:14px;font-size:14px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.2);max-width:90%;display:none}
+  .drawer-bg{position:fixed;inset:0;z-index:60;background:rgba(20,35,27,.45);display:none;justify-content:flex-end}
+  .drawer-bg.open{display:flex}
+  .drawer{width:100%;max-width:420px;height:100%;background:#fff;display:flex;flex-direction:column}
+  .citem{border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:8px}
+  .wa-float{position:fixed;right:18px;bottom:86px;z-index:40;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+
+  @media (max-width:760px){
+    .pad{padding-left:16px;padding-right:16px}
+    .menu,.hide-m{display:none !important}
+    .bottom-nav{display:flex}
+    .hero{padding:28px;min-height:420px}
+    .hero h1{font-size:36px}
+    .h2{font-size:26px}
+    .bundle-box{padding:24px}
+  }
+  @media (min-width:761px){.wa-float{bottom:24px}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="util pad">
+  <span>Buka setiap hari 08.30 – 17.30 WITA</span>
+  <span class="hide-m"><a href="https://wa.me/6282254335976">Cek Pesanan</a><a href="#faq">Bantuan</a></span>
+</div>
+
+<header class="pad">
+  <a href="#" class="logo"><span class="logo-mark">W</span><span><b>Wonderland</b><small>SAMARINDA</small></span></a>
+  <nav class="menu" aria-label="Menu utama">
+    <a href="#tiket">Tiket</a><a href="#wahana">Wahana</a><a href="#bundling">Promo</a><a href="#rombongan">Rombongan</a><a href="#lokasi">Lokasi</a><a href="#faq">FAQ</a>
+  </nav>
+  <button class="cart-btn" onclick="openCart()" aria-label="Buka keranjang">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h2l2.5 11h11L21 7H6.2"/></svg>
+    <span class="js-count">0</span><span class="hide-m">· <span class="js-total">Rp0</span></span>
+  </button>
+</header>
+
+<!-- HERO + BOOKING -->
+<section class="pad" style="padding-top:32px">
+  <div class="wrap hero-row">
+    <div class="hero">
+      <!-- GANTI FOTO: tambahkan style="background-image:url('img/xxx.jpg')" pada tiap .cover di bawah, lalu hapus teksnya -->
+      <div class="hero-photos">
+        <div class="cover" style="background-color:var(--tropical)">[FOTO: Dino Forest]</div>
+        <div class="cover" style="background-color:var(--ocean)">[FOTO: Kolam Renang]</div>
+        <div class="cover" style="background-color:var(--deep)">[FOTO: Rainbow Slide]</div>
+      </div>
+      <div class="hero-shade"></div>
+      <div class="hero-in">
+        <span class="chip" style="align-self:flex-start;background:var(--sun);color:var(--forest);font-size:13px;padding:6px 12px">Wisata tematik di tengah kebun sawit</span>
+        <h1>Where A Wonderful Life Begins.</h1>
+        <p>Dino Forest, kolam renang, Kampung Salju, Kampung Sakura, dan wahana seru seperti Rainbow Slide, Bombom Car, dan Monorail.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#tiket" class="btn btn-sun">BUY TICKETS</a>
+          <a href="#wahana" class="btn btn-ghost">EXPLORE WONDERLAND</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="booker">
+      <div>
+        <h2 style="margin:0;font-size:22px;font-weight:800;color:var(--forest)">Pesan Tiket Masuk</h2>
+        <p style="margin:4px 0 0;font-size:14px;color:var(--muted)">Harga otomatis menyesuaikan weekday / weekend.</p>
+      </div>
+      <label>Tanggal kunjungan <input type="date" id="date"></label>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:13px;font-weight:700;color:var(--forest)">Jenis tiket</span>
+        <div id="quickOpts" style="display:flex;flex-direction:column;gap:8px"></div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span style="font-size:13px;font-weight:700;color:var(--forest)">Jumlah orang</span>
+        <div style="display:flex;align-items:center;gap:6px">
+          <button class="qbtn" onclick="setQty(-1)" aria-label="Kurangi">−</button>
+          <span id="qty" style="min-width:32px;text-align:center;font-weight:800;font-size:18px">2</span>
+          <button class="qbtn" onclick="setQty(1)" aria-label="Tambah">+</button>
+        </div>
+      </div>
+      <div style="border-top:1px dashed var(--line2);padding-top:14px;display:flex;justify-content:space-between;align-items:baseline">
+        <span id="dayType" style="font-size:14px;color:var(--muted)"></span>
+        <span id="quickTotal" style="font-size:26px;font-weight:800;color:var(--forest)"></span>
+      </div>
+      <button class="btn btn-sun" style="min-height:52px;font-size:16px" onclick="addQuick()">Tambah ke Keranjang</button>
+      <p style="margin:0;font-size:12px;color:var(--muted)">Anak dengan tinggi di atas 80 cm berlaku harga normal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="pad" style="padding-top:24px">
+  <div class="wrap grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+    <div class="feat"><span class="feat-ic" style="background:#E1F2EE;color:var(--tropical)"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span><b>Suasana kebun sawit</b><span>Sejuk dan hijau di Handil Bakti, Palaran</span></span></div>
+    <div class="feat"><span class="feat-ic" style="background:#E0F0FA;color:var(--ocean)"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 16c2 0 2-1.5 4-1.5S8 16 10 16s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><path d="M2 20c2 0 2-1.5 4-1.5S8 20 10 20s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><path d="M8 13V5a2 2 0 0 1 4 0M16 13V5a2 2 0 0 0-4 0"/></svg></span><span><b>Kolam renang termasuk</b><span>Semua tiket masuk sudah termasuk kolam</span></span></div>
+    <div class="feat"><span class="feat-ic" style="background:#FCF1D2;color:#8A6A0B"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/></svg></span><span><b>Banyak pilihan tiket</b><span>Reguler, Terusan, Terusan Plus & bundling</span></span></div>
+    <div class="feat"><span class="feat-ic" style="background:#E1F2EE;color:var(--tropical)"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21v-1a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v1"/><circle cx="12" cy="8" r="4"/></svg></span><span><b>Dukung UMKM lokal</b><span>Tenant makanan & minuman di area wisata</span></span></div>
+  </div>
+</section>
+
+<!-- TICKETS -->
+<section id="tiket" class="sec pad">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">TIKET MASUK</div><h2 class="h2">Pengalaman Wisata</h2></div>
+      <span id="priceFor" style="font-size:14px;color:var(--muted)"></span>
+    </div>
+    <div id="tickets" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))"></div>
+  </div>
+</section>
+
+<!-- RIDES -->
+<section id="wahana" class="sec pad">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">WAHANA SATUAN</div><h2 class="h2">Pilih wahana favoritmu</h2>
+      <p style="margin:6px 0 0;color:var(--muted)">Untuk pemegang Tiket Reguler yang ingin menambah wahana tertentu.</p></div>
+    </div>
+    <div id="rides" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px"></div>
+  </div>
+</section>
+
+<!-- BUNDLES -->
+<section id="bundling" class="sec pad">
+  <div class="wrap bundle-box">
+    <div class="sec-head">
+      <div><div class="eyebrow" style="color:var(--sun)">BUNDLING HEMAT</div><h2 class="h2" style="color:#fff">Gabung wahana, lebih hemat</h2></div>
+      <span style="font-size:14px;color:#CFE3DA">Dibandingkan harga satuan</span>
+    </div>
+    <div id="bundles" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px"></div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="pad" style="padding-top:24px">
+  <div class="wrap grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+    <div class="feat"><span class="feat-ic" style="background:#E1F2EE;color:var(--tropical)"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4M4 8h4M4 12h6M4 16h4"/></svg></span><span><b>Anak di atas 80 cm</b><span>berlaku harga normal.</span></span></div>
+    <div class="feat"><span class="feat-ic" style="background:#FBEBEB;color:#B42318"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span><span><b>Tidak boleh membawa makanan/minuman dari luar</b><span>Kami mendukung UMKM lokal. Tersedia banyak tenant di area wisata.</span></span></div>
+  </div>
+</section>
+
+<!-- GROUP -->
+<section id="rombongan" class="sec pad">
+  <div class="wrap hero-row">
+    <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <div class="eyebrow">RESERVASI ROMBONGAN</div>
+      <h2 class="h2">Datang ramai-ramai, kami siapkan semuanya</h2>
+      <p style="margin:0;line-height:1.6;color:var(--muted)">Sekolah, kantor, komunitas, atau keluarga besar. Hubungi kami untuk paket rombongan dan outbound.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-forest wa" data-msg="Halo Wonderland, saya mau reservasi rombongan." href="#">GROUP RESERVATION</a>
+        <a class="btn btn-outline wa" href="#">CONTACT US</a>
+      </div>
+    </div>
+    <div class="grid" style="flex:1 1 420px;min-width:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+      <div class="feat" style="flex-direction:column;gap:4px"><b>Outing Class</b><span>Sekolah & TK</span></div>
+      <div class="feat" style="flex-direction:column;gap:4px"><b>Outbound</b><span>Dipandu trainer Wonderland</span></div>
+      <div class="feat" style="flex-direction:column;gap:4px"><b>Gathering</b><span>Kantor & komunitas</span></div>
+      <div class="feat" style="flex-direction:column;gap:4px"><b>Ulang Tahun</b><span>Pesta anak di Wonderland</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="lokasi" class="sec pad">
+  <div class="wrap hero-row">
+    <div class="feat" style="flex:1 1 360px;flex-direction:column;gap:12px;padding:28px">
+      <div class="eyebrow">LOKASI & JAM BUKA</div>
+      <b style="font-size:20px">Jl. Padat Karya, RT 018, Handil Bakti, Palaran, Kota Samarinda, Kalimantan Timur 75242</b>
+      <span>Buka setiap hari, 08.30 – 17.30 WITA</span>
+      <a class="btn btn-forest" style="align-self:flex-start" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Wonderland+Samarinda+Palaran">Petunjuk Arah</a>
+    </div>
+    <div style="flex:2 1 420px;min-width:0;border-radius:24px;overflow:hidden;min-height:320px;border:1px solid var(--line)">
+      <iframe title="Peta Wonderland Samarinda" src="https://maps.google.com/maps?q=Wonderland%20Samarinda%20Handil%20Bakti%20Palaran&output=embed" loading="lazy" style="width:100%;height:100%;min-height:320px;border:0"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec pad">
+  <div class="wrap">
+    <div class="eyebrow">FAQ</div><h2 class="h2" style="margin-bottom:20px">Pertanyaan umum</h2>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <details class="feat" style="display:block"><summary style="font-weight:700;cursor:pointer;min-height:28px">Jam berapa Wonderland buka?</summary><p style="color:var(--muted)">Setiap hari pukul 08.30 – 17.30 WITA.</p></details>
+      <details class="feat" style="display:block"><summary style="font-weight:700;cursor:pointer;min-height:28px">Apakah tiket sudah termasuk kolam renang?</summary><p style="color:var(--muted)">Ya, semua tiket masuk (Reguler, Terusan, Terusan Plus) sudah termasuk kolam renang.</p></details>
+      <details class="feat" style="display:block"><summary style="font-weight:700;cursor:pointer;min-height:28px">Bolehkah membawa makanan dari luar?</summary><p style="color:var(--muted)">Tidak. Tersedia banyak tenant makanan & minuman UMKM lokal di area wisata.</p></details>
+      <details class="feat" style="display:block"><summary style="font-weight:700;cursor:pointer;min-height:28px">Anak kecil bayar tiket?</summary><p style="color:var(--muted)">Anak dengan tinggi di atas 80 cm berlaku harga normal.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer class="footer pad">
+  <div class="wrap grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;font-size:14px">
+    <div><b style="font-size:18px">Wonderland Samarinda</b><p style="margin:8px 0 0">Where A Wonderful Life Begins.<br>PT. Wisata Taman Ceria</p></div>
+    <div><b>Navigasi</b><a href="#tiket">Tiket</a><a href="#wahana">Wahana</a><a href="#rombongan">Rombongan</a></div>
+    <div><b>Bantuan</b><a href="#faq">FAQ</a><a href="#lokasi">Lokasi</a><a class="wa" href="#">Cek Pesanan</a></div>
+    <div><b>Terhubung</b><a class="wa" href="#">WhatsApp 0822-5433-5976</a><a href="mailto:wonderlandsamarinda@gmail.com">wonderlandsamarinda@gmail.com</a><a href="https://instagram.com/wonderlandsamarinda" target="_blank" rel="noopener">@wonderlandsamarinda</a></div>
+  </div>
+  <div class="wrap" style="margin-top:28px;border-top:1px solid rgba(255,255,255,.15);padding-top:18px;font-size:13px">© <span id="yr"></span> Wonderland Samarinda</div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Menu bawah">
+  <a href="#tiket"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/></svg>Tiket</a>
+  <a href="#wahana"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 20V10l6-6 6 6v10"/></svg>Wahana</a>
+  <a href="#rombongan"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2 20v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1"/></svg>Rombongan</a>
+  <button onclick="openCart()"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h2l2.5 11h11L21 7H6.2"/></svg>Keranjang (<span class="js-count">0</span>)</button>
+</nav>
+
+<a class="wa-float wa" href="#" aria-label="Chat WhatsApp"><svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5 16 5s10.6 4.8 10.6 10.6S21.8 26.1 16 26.1z"/></svg></a>
+
+<div class="toast" id="toast" role="status"></div>
+
+<div class="drawer-bg" id="drawer" onclick="if(event.target===this)closeCart()">
+  <aside class="drawer" aria-label="Keranjang">
+    <div style="padding:20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
+      <h2 style="margin:0;font-size:20px;font-weight:800;color:var(--forest)">Keranjang</h2>
+      <button class="qbtn" onclick="closeCart()" aria-label="Tutup keranjang">×</button>
+    </div>
+    <div id="cartList" style="flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:12px"></div>
+    <div style="padding:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="color:var(--muted)">Total</span><span class="js-total" style="font-size:24px;font-weight:800;color:var(--forest)">Rp0</span></div>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:var(--forest)">Nama pemesan
+        <input id="custName" autocomplete="name" style="min-height:46px;border-radius:12px;border:1px solid var(--line2);padding:0 12px;font-family:inherit;font-size:15px"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:var(--forest)">No. WhatsApp
+        <input id="custPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="08xxxxxxxxxx" style="min-height:46px;border-radius:12px;border:1px solid var(--line2);padding:0 12px;font-family:inherit;font-size:15px"></label>
+      <button id="checkoutBtn" class="btn btn-sun" style="min-height:52px;font-size:16px" onclick="checkout()">Kirim Pesanan</button>
+      <span style="font-size:12px;color:var(--muted);text-align:center">Pesanan tercatat dengan nomor booking, lalu dikonfirmasi admin via WhatsApp. Pembayaran online menyusul.</span>
+    </div>
+  </aside>
+</div>
+
+<script>
+/* ===== DATA (ubah harga di sini) ===== */
+const WA_NUMBER = "6282254335976";
+/* URL Web App Google Apps Script (Deploy > Web app > URL yang berakhiran /exec).
+   Kosongkan = website memakai data bawaan di bawah dan pesanan hanya lewat WhatsApp. */
+const API_URL = "https://script.google.com/macros/s/AKfycbyGkI6QRsH25nUKdhAkXXbNfDl7LBNou7sbRB_PIjRvMiBrNgi0TPyfII13AtbcvaNKCA/exec";
+let TICKETS = [
+  { id:"REGULER", name:"Tiket Reguler", weekday:25000, weekend:30000, badge:"", photo:"Kolam Renang", bg:"var(--ocean)",
+    includes:["Kolam Renang","Dino Forest","Kampung Sakura & Kampung Salju","Puluhan spot foto instagramable"] },
+  { id:"TERUSAN", name:"Tiket Terusan", weekday:75000, weekend:75000, badge:"Favorit keluarga", photo:"Rainbow Slide", bg:"var(--tropical)",
+    includes:["Semua fasilitas Tiket Reguler","Kereta Monorail","Bombom Car","Rainbow Slide"] },
+  { id:"TERUSAN_PLUS", name:"Tiket Terusan Plus", weekday:100000, weekend:100000, badge:"Paling puas", photo:"Trampolin Jumbo", bg:"var(--deep)",
+    includes:["Semua fasilitas Tiket Reguler","Monorail, Bombom Car, Rainbow Slide","Tamiya Gravity & Playground","Trampolin Jumbo"] }
+];
+let RIDES = [
+  { id:"monorail", name:"Kereta Monorail", price:25000 }, { id:"bombom", name:"Bombom Car", price:25000 },
+  { id:"rainbow", name:"Rainbow Slide", price:25000 }, { id:"tamiya", name:"Tamiya Gravity", price:25000 },
+  { id:"playground", name:"Playground", price:20000 }, { id:"trampolin", name:"Trampolin Jumbo", price:15000 },
+  { id:"keretamini", name:"Kereta Mini", price:10000 }
+];
+let BUNDLES = [
+  { id:"b1", name:"Rainbow Slide + Tamiya Gravity", price:40000, normal:50000 },
+  { id:"b2", name:"Rainbow Slide + Bombom Car", price:40000, normal:50000 },
+  { id:"b3", name:"Monorail + Bombom Car + Trampolin Jumbo", price:50000, normal:65000 },
+  { id:"b4", name:"Tamiya Gravity + Monorail + Rainbow Slide", price:60000, normal:75000 },
+  { id:"b5", name:"Playground + Monorail + Bombom Car", price:60000, normal:70000 }
+];
+const BGS = ["var(--tropical)","var(--ocean)","var(--deep)"];
+
+/* ===== STATE ===== */
+const rp = n => "Rp" + n.toLocaleString("id-ID");
+const pad2 = n => String(n).padStart(2,"0");
+const tomorrow = (() => { const d = new Date(); d.setDate(d.getDate()+1); return d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate()); })();
+let state = { date: tomorrow, quick: "TERUSAN", qty: 2, cart: [] };
+try { const saved = JSON.parse(localStorage.getItem("wl-cart") || "[]"); if (Array.isArray(saved)) state.cart = saved; } catch (e) {}
+const save = () => { try { localStorage.setItem("wl-cart", JSON.stringify(state.cart)); } catch (e) {} };
+
+const isWeekend = iso => { const [y,m,d] = iso.split("-").map(Number); const w = new Date(y,m-1,d).getDay(); return w===0||w===6; };
+const MONTHS = ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"];
+const dateLabel = iso => { const [y,m,d] = iso.split("-").map(Number); return d+" "+MONTHS[m-1]+" "+y; };
+let HOLIDAYS = [];
+const priceOf = t => HOLIDAYS.includes(state.date) ? (t.holiday || t.weekend) : isWeekend(state.date) ? t.weekend : t.weekday;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ===== RENDER ===== */
+function renderQuick() {
+  document.getElementById("quickOpts").innerHTML = TICKETS.map(t =>
+    `<button class="opt${t.id===state.quick?" on":""}" onclick="pickQuick('${t.id}')"><span style="font-weight:700">${esc(t.name)}</span><span>${rp(priceOf(t))}</span></button>`).join("");
+  const t = TICKETS.find(x => x.id===state.quick);
+  document.getElementById("qty").textContent = state.qty;
+  document.getElementById("dayType").textContent = (HOLIDAYS.includes(state.date)?"Hari libur":isWeekend(state.date)?"Weekend":"Weekday") + " · " + state.qty + " orang";
+  document.getElementById("quickTotal").textContent = rp(priceOf(t) * state.qty);
+}
+function renderTickets() {
+  document.getElementById("priceFor").textContent = "Harga untuk " + dateLabel(state.date);
+  document.getElementById("tickets").innerHTML = TICKETS.map(t => `
+    <article class="card">
+      <div class="cover" style="height:180px;background-color:${t.bg};${t.image?`background-image:url('${esc(t.image)}')`:""}">${t.image?"":"[FOTO: "+esc(t.photo)+"]"}
+        ${t.badge ? `<span class="chip" style="position:absolute;top:14px;left:14px;background:var(--sun);color:var(--forest)">${esc(t.badge)}</span>` : ""}</div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:12px;flex:1">
+        <div style="display:flex;justify-content:space-between"><span class="chip" style="background:#E1F2EE;color:var(--tropical)">Tiket</span><span style="font-size:12px;font-weight:700;color:var(--tropical)">● Tersedia</span></div>
+        <h3 style="margin:0;font-size:21px;font-weight:800;color:var(--forest)">${esc(t.name)}</h3>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;flex:1">
+          ${t.includes.map(i => `<li style="display:flex;gap:8px;font-size:14px;color:#33433A"><svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--tropical);stroke-width:2.5;margin-top:2px;flex-shrink:0" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>${esc(i)}</li>`).join("")}
+        </ul>
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-size:13px;color:var(--muted)">${HOLIDAYS.includes(state.date) ? "Harga hari libur" : t.weekday!==t.weekend ? (isWeekend(state.date)?"Harga weekend":"Harga weekday") : "Semua hari"}</span>
+          <span style="font-size:24px;font-weight:800;color:var(--forest)">${rp(priceOf(t))}</span>
+        </div>
+        <button class="btn btn-forest" onclick="addTicket('${t.id}')">Tambah ke Keranjang</button>
+      </div>
+    </article>`).join("");
+}
+function renderRides() {
+  document.getElementById("rides").innerHTML = RIDES.map((r,i) => `
+    <article class="card" style="border-radius:20px">
+      <div class="cover" style="height:130px;background-color:${BGS[i%3]};${r.image?`background-image:url('${esc(r.image)}')`:""}">${r.image?"":"[FOTO: "+esc(r.name)+"]"}</div>
+      <div style="padding:16px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between"><span class="chip" style="background:#E0F0FA;color:var(--ocean)">Wahana</span>${r.status && r.status!=="Buka" ? `<span style="font-size:12px;font-weight:700;color:#B42318">● ${esc(r.status)}</span>` : `<span style="font-size:12px;font-weight:700;color:var(--tropical)">● Buka</span>`}</div>
+        <h3 style="margin:0;font-size:18px;font-weight:800;color:var(--forest)">${esc(r.name)}</h3>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+          <span style="font-size:20px;font-weight:800;color:var(--forest)">${rp(r.price)}</span>
+          <button class="btn btn-outline" style="min-height:44px;padding:0 16px;font-size:14px" onclick="addItem('R-${r.id}','${esc(r.name)}',${r.price})" aria-label="Tambah ${esc(r.name)} ke keranjang">+ Keranjang</button>
+        </div>
+      </div>
+    </article>`).join("");
+}
+function renderBundles() {
+  document.getElementById("bundles").innerHTML = BUNDLES.map(b => `
+    <article style="background:#fff;color:var(--ink);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between"><span class="chip" style="background:#FCF1D2;color:#8A6A0B">Bundling</span><span class="chip" style="background:var(--tropical);color:#fff">Hemat ${Math.round((1-b.price/b.normal)*100)}%</span></div>
+      <h3 style="margin:0;font-size:17px;font-weight:800;color:var(--forest);line-height:1.35">${esc(b.name)}</h3>
+      <div style="display:flex;align-items:baseline;gap:10px"><span style="font-size:22px;font-weight:800;color:var(--forest)">${rp(b.price)}</span><s style="font-size:14px;color:#6B7A71">${rp(b.normal)}</s></div>
+      <button class="btn btn-sun" style="min-height:44px;font-size:14px" onclick="addItem('B-${b.id}','Bundling: ${esc(b.name)}',${b.price})">Tambah ke Keranjang</button>
+    </article>`).join("");
+}
+function renderCart() {
+  const count = state.cart.reduce((s,c)=>s+c.qty,0);
+  const total = state.cart.reduce((s,c)=>s+c.qty*c.price,0);
+  document.querySelectorAll(".js-count").forEach(el => el.textContent = count);
+  document.querySelectorAll(".js-total").forEach(el => el.textContent = rp(total));
+  document.getElementById("cartList").innerHTML = state.cart.length ? state.cart.map((c,i) => `
+    <div class="citem">
+      <div style="display:flex;justify-content:space-between;gap:8px"><b style="color:var(--forest)">${esc(c.name)}</b><b style="color:var(--forest)">${rp(c.price*c.qty)}</b></div>
+      <span style="font-size:13px;color:var(--muted)">${rp(c.price)} / item · ${dateLabel(c.date)}</span>
+      <div style="display:flex;align-items:center;gap:6px">
+        <button class="qbtn" onclick="changeQty(${i},-1)" aria-label="Kurangi">−</button>
+        <span style="min-width:28px;text-align:center;font-weight:800">${c.qty}</span>
+        <button class="qbtn" onclick="changeQty(${i},1)" aria-label="Tambah">+</button>
+      </div>
+    </div>`).join("") : `<p style="margin:24px 0;text-align:center;color:var(--muted)">Keranjang masih kosong.</p>`;
+  save();
+}
+function renderAll(){ renderQuick(); renderTickets(); renderRides(); renderBundles(); renderCart(); }
+
+/* ===== ACTIONS ===== */
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.style.display="block"; clearTimeout(window._tt); window._tt=setTimeout(()=>t.style.display="none",2200); }
+function addItem(key,name,price,qty=1){
+  const k = key+"|"+state.date;
+  const f = state.cart.find(c=>c.key===k);
+  if (f) f.qty += qty; else state.cart.push({key:k,name,price,qty,date:state.date});
+  renderCart(); toast(name+" ditambahkan ke keranjang");
+}
+function addTicket(id){ const t=TICKETS.find(x=>x.id===id); addItem("T-"+id, t.name, priceOf(t)); }
+function addQuick(){ const t=TICKETS.find(x=>x.id===state.quick); addItem("T-"+t.id, t.name, priceOf(t), state.qty); }
+function pickQuick(id){ state.quick=id; renderQuick(); }
+function setQty(d){ state.qty=Math.min(50,Math.max(1,state.qty+d)); renderQuick(); }
+function changeQty(i,d){ state.cart[i].qty+=d; if(state.cart[i].qty<=0) state.cart.splice(i,1); renderCart(); }
+function openCart(){ document.getElementById("drawer").classList.add("open"); }
+function closeCart(){ document.getElementById("drawer").classList.remove("open"); }
+async function checkout(){
+  if(!state.cart.length){ toast("Keranjang masih kosong"); return; }
+  const name = document.getElementById("custName").value.trim();
+  const phone = document.getElementById("custPhone").value.trim();
+  if(name.length < 2){ toast("Isi nama pemesan"); return; }
+  if(!/^(\+?62|0)8[0-9]{7,12}$/.test(phone.replace(/[\s-]/g,""))){ toast("Nomor WhatsApp tidak valid"); return; }
+  const btn = document.getElementById("checkoutBtn");
+  let ref = "", total = state.cart.reduce((s,c)=>s+c.qty*c.price,0);
+  if (API_URL) {
+    btn.disabled = true; btn.textContent = "Mengirim...";
+    try {
+      const items = state.cart.map(c => { const [k,date] = c.key.split("|"); const [type,...rest] = k.split("-"); return { type, id: rest.join("-"), qty: c.qty, date }; });
+      const params = new URLSearchParams(location.search);
+      const res = await fetch(API_URL, { method:"POST", headers:{ "Content-Type":"text/plain;charset=utf-8" },
+        body: JSON.stringify({ action:"order", name, phone, items, source: params.get("utm_source") || document.referrer || "direct" }) });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "Gagal");
+      ref = data.ref; total = data.total;
+    } catch (e) {
+      btn.disabled = false; btn.textContent = "Kirim Pesanan";
+      toast("Gagal mengirim pesanan: " + e.message); return;
+    }
+    btn.disabled = false; btn.textContent = "Kirim Pesanan";
+  }
+  const lines = state.cart.map(c=>`- ${c.name} x${c.qty} (${dateLabel(c.date)}) = ${rp(c.price*c.qty)}`).join("\n");
+  const msg = `Halo Wonderland Samarinda, saya mau pesan${ref ? " (No. booking " + ref + ")" : ""}:\n${lines}\nTotal: ${rp(total)}\n\nNama: ${name}\nNo. HP: ${phone}`;
+  state.cart = []; renderCart(); closeCart();
+  toast(ref ? "Pesanan " + ref + " tercatat" : "Membuka WhatsApp...");
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank","noopener");
+}
+
+/* Ambil harga & produk terbaru dari Google Sheet lewat Apps Script */
+async function loadCatalog(){
+  if (!API_URL) return;
+  try {
+    const res = await fetch(API_URL + "?action=catalog");
+    const d = await res.json();
+    if (!d.ok) return;
+    const bgs = ["var(--ocean)","var(--tropical)","var(--deep)"];
+    if (d.tickets && d.tickets.length) TICKETS = d.tickets.map((t,i) => ({ id:t.id, name:t.name, weekday:t.weekday, weekend:t.weekend, holiday:t.holiday, badge:t.badge||"", photo:t.photo||t.name, image:t.image||"", bg:bgs[i%3], includes:t.includes||[] }));
+    if (d.rides && d.rides.length) RIDES = d.rides;
+    if (Array.isArray(d.holidays)) HOLIDAYS = d.holidays;
+    if (d.bundles && d.bundles.length) BUNDLES = d.bundles;
+    if (!TICKETS.some(t => t.id === state.quick)) state.quick = TICKETS[0].id;
+    renderAll();
+  } catch (e) { /* tetap pakai data bawaan */ }
+}
+
+/* ===== INIT ===== */
+const dateInput = document.getElementById("date");
+dateInput.value = state.date;
+dateInput.min = (()=>{const d=new Date();return d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate());})();
+dateInput.addEventListener("change", e => { if (e.target.value) { state.date = e.target.value; renderQuick(); renderTickets(); } });
+document.querySelectorAll("a.wa").forEach(a => { a.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(a.dataset.msg || "Halo Wonderland Samarinda, saya ingin bertanya.")}`; a.target="_blank"; a.rel="noopener"; });
+document.getElementById("yr").textContent = new Date().getFullYear();
+renderAll();
+loadCatalog();
+if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{})); }
+</script>
+</body>
+</html>
