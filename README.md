@@ -76,3 +76,4 @@ clasp deploy -i <DEPLOYMENT_ID>      # update deployment tanpa ganti URL
 - Harga selalu dihitung ulang di Apps Script dari sheet; harga dari browser diabaikan.
 - Jangan simpan password atau kunci rahasia di `frontend/` (semua isinya publik).
 - Google Sheet cocok untuk volume pesanan kecil–menengah. Untuk pembayaran online & e-ticket QR skala besar, ikuti rencana fase 4 di dokumen perencanaan.
+
