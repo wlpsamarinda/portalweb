@@ -325,8 +325,11 @@
         <input id="custName" autocomplete="name" style="min-height:46px;border-radius:12px;border:1px solid var(--line2);padding:0 12px;font-family:inherit;font-size:15px"></label>
       <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:var(--forest)">No. WhatsApp
         <input id="custPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="08xxxxxxxxxx" style="min-height:46px;border-radius:12px;border:1px solid var(--line2);padding:0 12px;font-family:inherit;font-size:15px"></label>
+      <label aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Website
+        <input id="custWebsite" tabindex="-1" autocomplete="off"></label>
+      <div id="tsBox" style="min-height:0;display:flex;justify-content:center"></div>
       <button id="checkoutBtn" class="btn btn-sun" style="min-height:52px;font-size:16px" onclick="checkout()">Kirim Pesanan</button>
-      <span style="font-size:12px;color:var(--muted);text-align:center">Pesanan tercatat dengan nomor booking, lalu dikonfirmasi admin via WhatsApp. Pembayaran online menyusul.</span>
+      <span style="font-size:12px;color:var(--muted);text-align:center">Pesanan tercatat dengan status <b>menunggu konfirmasi</b> dan baru diproses setelah dikonfirmasi admin via WhatsApp.</span>
     </div>
   </aside>
 </div>
@@ -336,7 +339,8 @@
 const WA_NUMBER = "6282254335976";
 /* URL Web App Google Apps Script (Deploy > Web app > URL yang berakhiran /exec).
    Kosongkan = website memakai data bawaan di bawah dan pesanan hanya lewat WhatsApp. */
-const API_URL = "https://script.google.com/macros/s/AKfycbyGkI6QRsH25nUKdhAkXXbNfDl7LBNou7sbRB_PIjRvMiBrNgi0TPyfII13AtbcvaNKCA/exec";
+/* API lewat gerbang Cloudflare (src/worker.js). URL Apps Script tidak lagi ditaruh di sini. */
+const API_BASE = "/api";
 let TICKETS = [
   { id:"REGULER", name:"Tiket Reguler", weekday:25000, weekend:30000, badge:"", photo:"Kolam Renang", bg:"var(--ocean)",
     includes:["Kolam Renang","Dino Forest","Kampung Sakura & Kampung Salju","Puluhan spot foto instagramable"] },
@@ -382,7 +386,7 @@ const MONTHS = ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov
 const dateLabel = iso => { const [y,m,d] = iso.split("-").map(Number); return d+" "+MONTHS[m-1]+" "+y; };
 let HOLIDAYS = [];
 const priceOf = t => HOLIDAYS.includes(state.date) ? (t.holiday || t.weekend) : isWeekend(state.date) ? t.weekend : t.weekday;
-const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
 /* ===== RENDER ===== */
 function renderQuick() {
@@ -468,7 +472,7 @@ function addQuick(){ const t=TICKETS.find(x=>x.id===state.quick); addItem("T-"+t
 function pickQuick(id){ state.quick=id; renderQuick(); }
 function setQty(d){ state.qty=Math.min(50,Math.max(1,state.qty+d)); renderQuick(); }
 function changeQty(i,d){ state.cart[i].qty+=d; if(state.cart[i].qty<=0) state.cart.splice(i,1); renderCart(); }
-function openCart(){ document.getElementById("drawer").classList.add("open"); }
+function openCart(){ document.getElementById("drawer").classList.add("open"); if (!SEC.cartOpened) { SEC.cartOpened = true; SEC.openedAt = Date.now(); } ensureTurnstile(); }
 function closeCart(){ document.getElementById("drawer").classList.remove("open"); }
 async function checkout(){
   if(!state.cart.length){ toast("Keranjang masih kosong"); return; }
@@ -477,21 +481,28 @@ async function checkout(){
   if(name.length < 2){ toast("Isi nama pemesan"); return; }
   if(!/^(\+?62|0)8[0-9]{7,12}$/.test(phone.replace(/[\s-]/g,""))){ toast("Nomor WhatsApp tidak valid"); return; }
   const btn = document.getElementById("checkoutBtn");
+  if (btn.disabled) return;
+  if (SEC.siteKey && SEC.need && !SEC.token) { ensureTurnstile(); toast("Selesaikan verifikasi keamanan di atas tombol"); return; }
   let ref = "", total = state.cart.reduce((s,c)=>s+c.qty*c.price,0);
-  if (API_URL) {
+  {
     btn.disabled = true; btn.textContent = "Mengirim...";
     try {
       const items = state.cart.map(c => { const [k,date] = c.key.split("|"); const [type,...rest] = k.split("-"); return { type, id: rest.join("-"), qty: c.qty, date }; });
       const params = new URLSearchParams(location.search);
-      const res = await fetch(API_URL, { method:"POST", headers:{ "Content-Type":"text/plain;charset=utf-8" },
-        body: JSON.stringify({ action:"order", name, phone, items, source: params.get("utm_source") || document.referrer || "direct" }) });
+      const res = await fetch(API_BASE + "/order", { method:"POST", headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ name, phone, items, source: (params.get("utm_source") || "direct").slice(0,60),
+          website: document.getElementById("custWebsite").value, elapsed: Date.now() - SEC.openedAt, turnstile: SEC.token }) });
       const data = await res.json();
-      if (!data.ok) throw new Error(data.error || "Gagal");
-      ref = data.ref; total = data.total;
+      if (!data.ok) {
+        if (data.code === "CAPTCHA_REQUIRED" && SEC.siteKey) { SEC.need = true; ensureTurnstile(); }
+        throw new Error(data.error || "Gagal");
+      }
+      ref = data.ref; total = data.total || total;
     } catch (e) {
-      btn.disabled = false; btn.textContent = "Kirim Pesanan";
-      toast("Gagal mengirim pesanan: " + e.message); return;
+      btn.disabled = false; btn.textContent = "Kirim Pesanan"; resetTurnstile();
+      toast(e.message || "Gagal mengirim pesanan"); return;
     }
+    resetTurnstile();
     btn.disabled = false; btn.textContent = "Kirim Pesanan";
   }
   const lines = state.cart.map(c=>`- ${c.name} x${c.qty} (${dateLabel(c.date)}) = ${rp(c.price*c.qty)}`).join("\n");
@@ -502,10 +513,27 @@ async function checkout(){
 }
 
 /* Ambil harga & produk terbaru dari Google Sheet lewat Apps Script */
+/* ===== KEAMANAN FORM (Turnstile + waktu isi) ===== */
+const SEC = { siteKey:"", mode:"auto", need:false, token:"", widget:null, openedAt: Date.now(), loading:false };
+async function loadConfig(){
+  try { const r = await fetch(API_BASE + "/config"); const c = await r.json(); SEC.siteKey = c.turnstileSiteKey || ""; SEC.mode = c.turnstileMode || "auto"; SEC.need = SEC.mode === "always"; } catch(e){}
+}
+function ensureTurnstile(){
+  if (!SEC.siteKey || !SEC.need || SEC.widget !== null || SEC.loading) return;
+  SEC.loading = true;
+  window.onTurnstileLoad = () => {
+    SEC.widget = turnstile.render("#tsBox", { sitekey: SEC.siteKey, language: "id",
+      callback: t => SEC.token = t, "expired-callback": () => SEC.token = "", "error-callback": () => SEC.token = "" });
+  };
+  const s = document.createElement("script");
+  s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad";
+  s.async = true; document.head.appendChild(s);
+}
+function resetTurnstile(){ SEC.token = ""; if (SEC.widget !== null && window.turnstile) turnstile.reset(SEC.widget); }
+
 async function loadCatalog(){
-  if (!API_URL) return;
   try {
-    const res = await fetch(API_URL + "?action=catalog");
+    const res = await fetch(API_BASE + "/catalog");
     const d = await res.json();
     if (!d.ok) return;
     const bgs = ["var(--ocean)","var(--tropical)","var(--deep)"];
@@ -526,7 +554,7 @@ dateInput.addEventListener("change", e => { if (e.target.value) { state.date = e
 document.querySelectorAll("a.wa").forEach(a => { a.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(a.dataset.msg || "Halo Wonderland Samarinda, saya ingin bertanya.")}`; a.target="_blank"; a.rel="noopener"; });
 document.getElementById("yr").textContent = new Date().getFullYear();
 renderAll();
-loadCatalog();
+loadCatalog(); loadConfig();
 if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{})); }
 </script>
 </body>

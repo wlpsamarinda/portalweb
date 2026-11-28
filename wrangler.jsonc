@@ -1,9 +1,18 @@
 {
-  // Cloudflare Worker yang menyajikan website statis dari folder frontend/
+  // Cloudflare Worker: gerbang website (src/worker.js) + file statis dari folder frontend/
   "name": "wonderlandsamarindapages",
+  "main": "src/worker.js",
   "compatibility_date": "2026-11-01",
+  // Pertahankan variabel yang diatur di dashboard (MAINTENANCE, TURNSTILE_SITE_KEY, dll.)
+  "keep_vars": true,
   "assets": {
     "directory": "./frontend",
-    "not_found_handling": "single-page-application"
-  }
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true
+  },
+  "vars": {
+    "GAS_URL": "https://script.google.com/macros/s/AKfycbyGkI6QRsH25nUKdhAkXXbNfDl7LBNou7sbRB_PIjRvMiBrNgi0TPyfII13AtbcvaNKCA/exec"
+  },
+  "observability": { "enabled": true }
 }
