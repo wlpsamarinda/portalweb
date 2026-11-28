@@ -127,3 +127,4 @@ Untuk membuka blokir, hapus barisnya dari `DaftarHitam`.
 - Harga selalu dihitung ulang di Apps Script dari sheet; harga dari browser diabaikan.
 - Jangan simpan password atau kunci rahasia di `frontend/` (semua isinya publik). Kunci rahasia hanya di Cloudflare (Secret) dan Script Properties Apps Script.
 - Ganti kunci bila bocor: jalankan `generateOrderSecret()` lalu perbarui `GAS_SECRET` di Cloudflare.
+- Google Sheet cocok untuk volume pesanan kecil–menengah. Untuk pembayaran online & e-ticket QR skala besar, ikuti rencana fase 4 di dokumen perencanaan.
